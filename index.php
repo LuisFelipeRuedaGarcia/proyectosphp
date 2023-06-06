@@ -2,8 +2,8 @@
 <?php
 //! 1.2 Introdicción a PHP
 //! 1.2.1 Estructura básica de un Script PHP
-/* arteM01-047@rootar-9048-900-0044:~/Desktop/
-proyectosphp$ php -S localhost:3000
+/* arteM01-047@rootar-9048-900-0044:~/Desktop/proyectosphp$
+ php -S localhost:3000
  se ejecuta para poder abrir un localhost desde cualquier directorio sin que tenga que estar el archvio en /var/www/html/ArTM01-047 */
 
 //! 1.3 Funciones de Salida en PHP
@@ -63,15 +63,51 @@ echo "<br>";
 $boolean=false;
 var_dump($boolean);
 echo "<br>";
-//• Arreglos (array): es como una varible, sólo que puede almacenar varios dato, incluso si son de distinto tipo
+//• Arreglos (array): es como una varible, sólo que puede almacenar varios dato, incluso si son de distinto tipo y se guardan como si fuese una lista, donde cada elemento ocupa un posición (key) el número en que fue agregado.
 $array = [14,"Jose", false, "0.68"];
 var_dump($array);
 echo "<br>";
-//• Objetos (object): se utilizan para almacenar instancias de clases, que son definiciones de objetos. Como se puede observar en la imagen anterior que la línea número 10 se está imprimiendo el tipo de dato y el contenido de la variable haciendo uso de la función especial var_dump. 
-//
+echo $array[3];
+echo "<br>";
 
-//• Recursos (resource): se utilizan para almacenar referencias a recursos externos, como conexiones a bases de datos o archivos abiertos.
-//• Nulos (null): se utilizan para representar una variable sin valor o sin definir.Además de estos tipos de datos básicos, PHP también admite otros tipos de datos, como las constantes, que se mencionaron anteriormente, y los tipos de datos compuestos, como las estructuras de datos y las clases.
+//• Arreglosv Anidados (array): es un array, pero en lugar de guardarse su lugar en el array (key) asociado a su número de posición, tiene un "nombre con el que poder identificarlo dentro del array;
+$array = ["edad"=>14,"nombre"=>"Jose", "fue_aprovado"=>false, "promedio"=>"0.68"];
+var_dump($array);
+echo "<br>";
+echo $array["promedio"];
+echo "<br>";
+//• Objetos (object): se utilizan para almacenar instancias de clases, que son definiciones de objetos. Como se puede observar en la imagen anterior que la línea número 10 se está imprimiendo el tipo de dato y el contenido de la variable haciendo uso de la función especial var_dump. 
+class Clase {
+    private $propiedad;
+    public function __construct($propiedad){
+        $this->propiedad = $propiedad;
+    }
+    public function getPropiedad(){
+        return $this->propiedad;
+    }
+    public function setPropiedad($argumento){
+        $this->propiedad = $argumento;
+    }
+}
+
+$objeto = new Clase("valor");
+echo $objeto->getPropiedad();
+echo"<br>";
+
+//• un "resource" (recurso) es un tipo de dato especial que representa un recurso externo manejado por PHP. Un recurso es una referencia interna a un recurso externo, como un archivo abierto, una conexión de base de datos, un flujo de datos, etc.
+$file = fopen('archivo.txt', 'r');
+echo $file;
+
+/* $mysqli = new mysqli('localhost', 'usuario', 'contraseña', 'basededatos');
+
+$socket = fsockopen('tcp://example.com', 80); */
+//• Nulos (null): variables a las que no se les ha dado un valor.
+$vacia;
+
+echo $vacia;
+echo"<br>";
+var_dump($vacia);
+
 ?>
 
 
